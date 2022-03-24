@@ -162,6 +162,21 @@ class SeasonsController extends Controller
 		return $model;
 	}
 
+	public function actionDelete($id)
+	{
+		$this->loadModel($id)->delete();
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+		{
+				$action = "Deleted Season";
+				$this->History($action);
+
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+			
+	}
+
 	/**
 	 * Performs the AJAX validation.
 	 * @param Seasons $model the model to be validated
