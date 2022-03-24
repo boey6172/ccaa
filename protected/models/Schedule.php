@@ -29,12 +29,12 @@ class Schedule extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, cat_id, school_1, school_2,season_id,time,datetime_sched', 'required'),
+			array('event_id, cat_id, school_1, school_2,season_id,time,datetime_sched, venue', 'required'),
 			array('event_id, cat_id, school_1, school_2', 'numerical', 'integerOnly'=>true),
 			// array('datetime_sched', 'length', 'max'=>6),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, event_id, datetime_sched, cat_id, school_1, school_2, season_id, time', 'safe', 'on'=>'search'),
+			array('id, event_id, datetime_sched, cat_id, school_1, school_2, season_id, time, venue', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +63,8 @@ class Schedule extends CActiveRecord
 			'id' => 'ID',
 			'event_id' => 'Event',
 			'datetime_sched' => 'Datetime Sched',
-			'cat_id' => 'Cat',
+			'time' => 'Time',
+			'cat_id' => 'Category',
 			'school_1' => 'School 1',
 			'school_2' => 'School 2',
 			'season_id' => 'Season',

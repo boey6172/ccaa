@@ -89,7 +89,7 @@
 
                 <p>
                   <?php echo Yii::app()->user->getFirst_Name() ; ?>
-                  <small>Member since Nov. 2012</small>
+                  <small>Admin</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -212,6 +212,14 @@
             <li class=" ">
                 <a href="<?php echo Yii::app()->createUrl('announcement/index'); ?>">
                     <i class="fa fa-bullhorn fa-fw"></i> <span>Announcement</span>
+                    
+
+                </a>            
+            </li>
+
+            <li class=" ">
+                <a href="<?php echo Yii::app()->createUrl('logs/index'); ?>">
+                    <i class="fa fa-list-alt fa-fw"></i> <span>Logs</span>
                     
 
                 </a>            

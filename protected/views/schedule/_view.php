@@ -29,6 +29,10 @@
 	<?php echo CHtml::encode($data->school_2); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('venue')); ?>:</b>
+	<?php echo CHtml::encode($data->venue); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('season_id')); ?>:</b>
 	<?php echo CHtml::encode($data->season_id); ?>
 	<br />

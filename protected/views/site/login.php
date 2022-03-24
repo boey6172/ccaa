@@ -37,11 +37,15 @@
         
           <div class="form-group">
             <div class="form-label-group">
+              
             <?php echo $form->textField($vm->model,'username', array('tabindex'=>'1', 'class'=>'form-control', 'value'=>'', 'autocomplete'=>'off', 'placeholder'=>'Username', 'autofocus'=>'autofocus')); ?>
             <label for="LoginForm_username">Username</label>
             <?php echo $form->error($vm->model,'username'); ?>
             </div>
           </div>
+          
+
+          
           <div class="form-group">
             <div class="form-label-group">
                 <?php echo $form->passwordField($vm->model,'password', array('tabindex'=>'2', 'class'=>'form-control', 'value'=>'', 'placeholder'=>'Password')); ?>
@@ -109,7 +113,7 @@
         border: 1px solid #343a40;
     }
 
-</style>>
+</style>
     <script type="text/javascript">
 
         var u = $('#LoginForm_username');

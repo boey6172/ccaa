@@ -41,6 +41,11 @@
 		<?php echo $form->textField($model,'school_2'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'venue'); ?>
+		<?php echo $form->textField($model,'venue'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

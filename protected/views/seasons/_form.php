@@ -16,7 +16,7 @@ $form = $this->beginWidget(
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	
 
 	<div class="box-body">
 	<div class="col-md-4">

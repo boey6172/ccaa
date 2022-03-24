@@ -50,39 +50,7 @@ $form = $this->beginWidget(
                 )
             );?>
         </div>
-		<div class="col-sm-3">
-            <div class="input-append date">
-			<?php
-            
-            $this->widget(
-                'booster.widgets.TbDatePicker',
-                array(
-                    'model' => $model,
-                    'attribute' => 'datetime_sched'
-                    // 'value' => '11:15 PM',
-                    // 'noAppend' => true,
-                    // 'wrapperHtmlOptions' => array('class' => 'col-md-3'),
-                )
-            );
-            ?>
-			</div>
-
-			<?php
-            
-            $this->widget(
-                'booster.widgets.TbTimePicker',
-                array(
-                    'model' => $model,
-                    'attribute' => 'time'
-                    // 'value' => '11:15 PM',
-                    // 'noAppend' => true,
-                    // 'wrapperHtmlOptions' => array('class' => 'col-md-3'),
-                )
-            );
-            ?>
-				
-                
-        </div>
+        
         <div class="col-sm-3">
             <?php
             $CategoryList = CHtml::listData( Category::model()->findAll(), 'id', 'name');
@@ -169,17 +137,55 @@ $form = $this->beginWidget(
             );?>
         </div>
 
+        <div class="col-md-3">
+				<?php
+					echo $form->textFieldGroup($model, 'venue', array(
+						'widgetOptions' => array(
+							'htmlOptions' => array(
+								'autocomplete' => 'off',
+							)
+						)
+					));
+				?>
+			</div>	
 
-       
+            <div class="col-sm-3">
+            
+            <?php
+            $this->widget(
+                'booster.widgets.TbDatePicker',
+                array(
+                    'model' => $model,
+                    'attribute' => 'datetime_sched'
+                    // 'value' => '11:15 PM',
+                    // 'noAppend' => true,
+                    // 'wrapperHtmlOptions' => array('class' => 'col-md-3'),
+                )
+            );?>
+    </div>
+
+    <div class="col-sm-3">
+    
+        <?php
+        $this->widget(
+            'booster.widgets.TbTimePicker',
+            array(
+                'model' => $model,
+                'attribute' => 'time'
+                // 'value' => '11:15 PM',
+                // 'noAppend' => true,
+                // 'wrapperHtmlOptions' => array('class' => 'col-md-3'),
+            )
+        );
+        ?>        
+    </div>
 
 
-
-		
-
-	<div class="row buttons" style ="padding-left: 45px;">
-			<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
-	<?php $this->endWidget(); ?>
+       <?php $this->endWidget(); ?>
 
 </div>
+
+        <div class="row buttons" style ="padding-left: 15px;">
+			<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	    </div>
+

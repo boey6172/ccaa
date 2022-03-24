@@ -45,6 +45,8 @@ $this->menu=array(
 			'name'=>'school_2',
 			'value'=>$model->School_2->name,
 		),
+
+		'venue',
 		
 		array(
 			'name'=>'season_id',

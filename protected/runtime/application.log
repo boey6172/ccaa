@@ -25245,3 +25245,210 @@ Stack trace:
 REQUEST_URI=/ccaa/index.php?r=home/index
 HTTP_REFERER=http://localhost/ccaa/index.php?r=user/index
 ---
+2022/03/24 16:21:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "home/index".' in C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('home/index')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=home/index
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=logs/index
+---
+2022/03/24 16:54:36 [error] [exception.CException] exception 'CException' with message 'Property "Schedule.venue" is not defined.' in C:\xampp\htdocs\ccaa_2\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('venue')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('venue')
+#2 C:\xampp\htdocs\ccaa_2\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Schedule), 'venue')
+#3 C:\xampp\htdocs\ccaa_2\yii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Schedule), 'venue', Array)
+#4 C:\xampp\htdocs\ccaa_2\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Schedule), 'venue', Array)
+#5 [internal function]: CActiveForm->textField(Object(Schedule), 'venue', Array)
+#6 C:\xampp\htdocs\ccaa_2\ccaa\protected\extensions\booster\widgets\TbActiveForm.php(1293): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\ccaa_2\ccaa\protected\extensions\booster\widgets\TbActiveForm.php(1152): TbActiveForm->verticalGroup(Array, Object(Schedule), 'venue', Array)
+#8 C:\xampp\htdocs\ccaa_2\ccaa\protected\extensions\booster\widgets\TbActiveForm.php(389): TbActiveForm->customFieldGroupInternal(Array, Object(Schedule), 'venue', Array)
+#9 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\_form.php(180): TbActiveForm->textFieldGroup(Object(Schedule), 'venue', Array)
+#10 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\create.php(18): CController->renderPartial('_form', Array)
+#14 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#17 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#18 C:\xampp\htdocs\ccaa_2\ccaa\protected\controllers\ScheduleController.php(86): CController->render('create', Array)
+#19 C:\xampp\htdocs\ccaa_2\yii\framework\web\actions\CInlineAction.php(49): ScheduleController->actionCreate()
+#20 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#23 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(291): CFilterChain->run()
+#27 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#29 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('schedule/create')
+#30 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=schedule/create
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=schedule/index
+---
+2022/03/24 17:02:01 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.0" is not defined.' in C:\xampp\htdocs\ccaa_2\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\YiiBase.php(220): CComponent->__set('0', 'venue')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(388): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#3 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\index.php(55): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 C:\xampp\htdocs\ccaa_2\ccaa\protected\controllers\ScheduleController.php(148): CController->render('index', Array)
+#11 C:\xampp\htdocs\ccaa_2\yii\framework\web\actions\CInlineAction.php(49): ScheduleController->actionIndex()
+#12 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('schedule/index')
+#22 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=schedule/index
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=schedule/create
+---
+2022/03/24 17:02:33 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.0" is not defined.' in C:\xampp\htdocs\ccaa_2\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\YiiBase.php(220): CComponent->__set('0', 'venue')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(388): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#3 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\index.php(55): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 C:\xampp\htdocs\ccaa_2\ccaa\protected\controllers\ScheduleController.php(148): CController->render('index', Array)
+#11 C:\xampp\htdocs\ccaa_2\yii\framework\web\actions\CInlineAction.php(49): ScheduleController->actionIndex()
+#12 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('schedule/index')
+#22 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=schedule/index
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=schedule/create
+---
+2022/03/24 17:02:34 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.0" is not defined.' in C:\xampp\htdocs\ccaa_2\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\YiiBase.php(220): CComponent->__set('0', 'venue')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(388): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#3 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\index.php(55): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 C:\xampp\htdocs\ccaa_2\ccaa\protected\controllers\ScheduleController.php(148): CController->render('index', Array)
+#11 C:\xampp\htdocs\ccaa_2\yii\framework\web\actions\CInlineAction.php(49): ScheduleController->actionIndex()
+#12 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('schedule/index')
+#22 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=schedule/index
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=schedule/create
+---
+2022/03/24 17:02:34 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.0" is not defined.' in C:\xampp\htdocs\ccaa_2\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\YiiBase.php(220): CComponent->__set('0', 'venue')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(388): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\xampp\htdocs\ccaa_2\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#3 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\index.php(55): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 C:\xampp\htdocs\ccaa_2\ccaa\protected\controllers\ScheduleController.php(148): CController->render('index', Array)
+#11 C:\xampp\htdocs\ccaa_2\yii\framework\web\actions\CInlineAction.php(49): ScheduleController->actionIndex()
+#12 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('schedule/index')
+#22 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=schedule/index
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=schedule/create
+---
+2022/03/24 17:12:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "home/index".' in C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('home/index')
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=home/index
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=category/index
+---
+2022/03/24 17:57:04 [error] [exception.CException] exception 'CException' with message 'TbDatePicker must specify "model" and "attribute" or "name" property values.' in C:\xampp\htdocs\ccaa_2\yii\framework\web\widgets\CInputWidget.php:61
+Stack trace:
+#0 C:\xampp\htdocs\ccaa_2\ccaa\protected\extensions\booster\widgets\TbDatePicker.php(62): CInputWidget->resolveNameID()
+#1 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(181): TbDatePicker->run()
+#2 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\_form.php(164): CBaseController->widget('booster.widgets...', Array)
+#3 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\ccaa_2\ccaa\protected\views\schedule\create.php(18): CController->renderPartial('_form', Array)
+#7 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\ccaa_2\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#11 C:\xampp\htdocs\ccaa_2\ccaa\protected\controllers\ScheduleController.php(86): CController->render('create', Array)
+#12 C:\xampp\htdocs\ccaa_2\yii\framework\web\actions\CInlineAction.php(49): ScheduleController->actionCreate()
+#13 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 C:\xampp\htdocs\ccaa_2\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\ccaa_2\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#22 C:\xampp\htdocs\ccaa_2\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('schedule/create')
+#23 C:\xampp\htdocs\ccaa_2\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\ccaa_2\ccaa\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/ccaa_2/ccaa/index.php?r=schedule/create
+HTTP_REFERER=http://localhost/ccaa_2/ccaa/index.php?r=schedule/index
+---

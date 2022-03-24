@@ -32,7 +32,7 @@ class Achievement extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, cat_id, school, rank, s_achievement, season_id ', 'required'),
+			array('athlete, event_id, cat_id, school, rank, 	season_id ', 'required'),
 			array('event_id, cat_id, season_id', 'numerical', 'integerOnly'=>true),
 			array('athlete, school, rank, s_achievement', 'length', 'max'=>255),
 			//array('crt_date', 'length', 'max'=>20),

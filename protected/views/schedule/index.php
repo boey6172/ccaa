@@ -41,7 +41,11 @@ $this->menu=array(
 		array(
 			'name'=>'Schools',
 			'value'=>'$data->getVs()',
+		
 		),
+
+		'venue',
+		
 		array(
 			'name'=>'Season',
 			'value'=>'$data->Seasons->number',
