@@ -143,6 +143,7 @@ class Athlete extends CActiveRecord
 		$criteria->compare('medical',$this->medical,true);
 		$criteria->compare('gender',$this->gender,true);
 		$criteria->compare('season_id',$this->season_id,true);
+			
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

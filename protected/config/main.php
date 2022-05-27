@@ -96,12 +96,12 @@ return array(
 	        'pathViews' => 'application.views.email',
 	        'pathLayouts' => 'application.views.email.layouts'
 	    ),
-		'request' => array(
-            // 'class' => 'CustomHttpRequest',
-            'class' => 'application.components.CustomHttpRequest',
-            'enableCsrfValidation' => true,
-			 'enableCookieValidation'=>true,
-        ),
+		// 'request' => array(
+    //         // 'class' => 'CustomHttpRequest',
+    //         'class' => 'application.components.CustomHttpRequest',
+    //         'enableCsrfValidation' => true,
+		// 	 'enableCookieValidation'=>true,
+    //     ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

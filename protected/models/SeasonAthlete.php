@@ -1,21 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "logs".
+ * This is the model class for table "season_athlete".
  *
- * The followings are the available columns in table 'logs':
+ * The followings are the available columns in table 'season_athlete':
  * @property integer $id
- * @property string $user
- * @property string $action
+ * @property integer $season
+ * @property integer $athlete
  */
-class Logs extends CActiveRecord
+class SeasonAthlete extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'logs';
+		return 'season_athlete';
 	}
 
 	/**
@@ -26,11 +26,11 @@ class Logs extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('action', 'required'),
-			array('user, action', 'length', 'max'=>255),
+			array('season, athlete', 'required'),
+			array('season, athlete', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user, action,crt_date', 'safe', 'on'=>'search'),
+			array('id, season, athlete', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -42,8 +42,6 @@ class Logs extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'User'=>array(self::HAS_ONE, 'User', array( 'user_id' => 'user' )),
-
 		);
 	}
 
@@ -54,8 +52,8 @@ class Logs extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user' => 'User',
-			'action' => 'Action',
+			'season' => 'Season',
+			'athlete' => 'Athlete',
 		);
 	}
 
@@ -78,12 +76,11 @@ class Logs extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('user',$this->user,true);
-		$criteria->compare('action',$this->action,true);
+		$criteria->compare('season',$this->season);
+		$criteria->compare('athlete',$this->athlete);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			
 		));
 	}
 
@@ -91,23 +88,10 @@ class Logs extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Logs the static model class
+	 * @return SeasonAthlete the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-	public function beforeSave(){
-		if(parent::beforeSave()){
-			if(($this->isNewRecord)) {
-				$this->crt_date=date('Y-m-d H:i:s');
-				$this->user=Yii::app()->user->id;
-				return true;
-			}
-		
-			return true;
-		}else{
-			return false;
-		}
 	}
 }

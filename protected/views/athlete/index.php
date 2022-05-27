@@ -40,27 +40,11 @@ $this->menu=array(
 			'name'=>'event_id',
 			'value'=>'$data->Event->name',
 		),
-		
 		array(
 			'name'=>'cat_id',
 			'value'=>'$data->Category->name',
 		),
-		 array(
-			'name'=>'gender',
-			'value'=>'$data->Gender->name',
-		 ),
-		'birthday',
-		array(
-			'name'=>'Address',
-			'value'=>'$data->getFullAddress()',
-		),
-        'email',
-		'cnum',
-		
-		array(
-			'name'=>'Season',
-			'value'=>'$data->Seasons->number',
-		),
+
 	),
 )); ?>
 
