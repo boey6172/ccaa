@@ -91,6 +91,26 @@
 	)
 );
  ?>
+         <div class="col-sm-3">
+            <?php
+            $SchoolList2 = CHtml::listData( School::model()->findAll(), 'id', 'name');
+
+            echo $form->select2Group(
+                $model,
+                'school_2',
+                array(
+                    'wrapperHtmlOptions' => array(
+                        'class' => 'col-sm-8 ',
+                    ),
+                    'widgetOptions' => array(
+                        'data' => $SchoolList2,
+                        'options' => array(
+                            'placeholder' => 'Select School',
+                        ),
+                    ),
+                )
+            );?>
+        </div>
         </div>
 
 	<div class="row buttons">
