@@ -50,7 +50,7 @@ class User extends CActiveRecord
 			array('first_name, surname', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('username, password, email, first_name, surname, is_activated, profile_pic, department', 'safe', 'on'=>'search'),
+			array('username, password, email, first_name, surname, is_activated, profile_pic, department, school', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +63,8 @@ class User extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'Department'=>array(self::HAS_ONE, 'Department', array( 'department_id' => 'department' )),
+            'School'=>array(self::HAS_ONE, 'School', array( 'id' => 'school' )),
+
 		);
 	}
 

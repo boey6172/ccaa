@@ -25,7 +25,7 @@ $this->menu=array(
 		'id',
 		
 		array(
-			'name'=>'event_id',
+			'name'=>'datetime_sched',
 			'value'=>'$data->getDateTime()',
 		),
 		array(

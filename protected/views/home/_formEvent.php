@@ -41,6 +41,28 @@ $form = $this->beginWidget(
                 )
             );?>
         </div>
+				<div class="col-sm-3">
+            <?php
+            $CategoryList = CHtml::listData( Category::model()->findAll(), 'id', 'name');
+
+            echo $form->select2Group(
+                $model,
+                'category',
+                array(
+                    'wrapperHtmlOptions' => array(
+                        'class' => 'col-sm-8 ',
+                    ),
+                    'widgetOptions' => array(
+                        'data' => $CategoryList,
+                        'options' => array(
+                            'placeholder' => 'Select Category',
+                        ),
+                    ),
+                )
+            );?>
+        </div>
+
+
 
 	<div class="row">
 		<!-- <?php echo $form->labelEx($model,'season'); ?> -->
@@ -81,7 +103,6 @@ $form = $this->beginWidget(
 
 	</div>
 
-
 <?php $this->endWidget(); ?>
 <?php
 	$eventSave = Yii::app()->createUrl( "Home/EventSave" );
@@ -108,6 +129,7 @@ $form = $this->beginWidget(
 	            {
 	            	// window.location =  '{$addEvent}' + json.retMessage; 
 								alert('success');
+								reloadGrid();
 	            }
 	            else if(json.retVal == '{$error}')
 	            {
@@ -126,6 +148,16 @@ $form = $this->beginWidget(
 		var id = $('#SeasonEvent_season').val();
 		window.location = '{$addSchool}' + id
 	});
+
+
+	function reloadGrid()
+	{
+		$('#seasons-event-grid').yiiGridView('update', {
+			type:'POST',
+			data: $(this).serialize()
+		});
+		return false;
+	}
 
    ");
 ?>

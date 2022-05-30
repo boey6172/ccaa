@@ -18,13 +18,14 @@ $this->menu=array(
 
 <h1>View Schedule #<?php echo $model->id; ?></h1>
 
+
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
 		
 		array(
-			'name'=>'event_id',
+			'name'=>'datetime_sched',
 			'value'=>$model->getDateTime(),
 		),
 		array(

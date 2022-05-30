@@ -135,6 +135,12 @@ class SiteController extends Controller
 						elseif($checkrole->itemname == 'rxAdmin') {
 							$this->redirect(array('athlete/index'));
 						}
+						elseif($checkrole->itemname == 'school-co') {
+							$this->redirect(array('athlete/index'));
+						}
+						elseif($checkrole->itemname == 'Co-Admin') {
+							$this->redirect(array('athlete/index'));
+						}
 					}
 				}
 				else
@@ -163,6 +169,11 @@ class SiteController extends Controller
 	{
 		$this->render('redirect');
 	}
+	public function actionUser()
+	{
+		$this->renderPartial('user');
+	}
+	
 
 
 	public function History($action)

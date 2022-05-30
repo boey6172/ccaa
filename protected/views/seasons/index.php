@@ -20,7 +20,7 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	// 'filter'=>$dataProvider,
 	'columns'=>array(
-		'id',
+		// 'id',
 		'number',
 		'theme',
 		/*

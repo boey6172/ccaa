@@ -107,6 +107,7 @@ $form = $this->beginWidget(
 	            {
 	            	// window.location =  '{$addSchool}' + json.retMessage; 
 								alert('success');
+								reloadGrid();
 	            }
 	            else if(json.retVal == '{$error}')
 	            {
@@ -125,6 +126,15 @@ $form = $this->beginWidget(
 		var id = $('#SeasonSchool_season').val();
 		window.location = '{$addAthlete}' + id
 	});
+
+	function reloadGrid()
+	{
+		$('#seasons-school-grid').yiiGridView('update', {
+			type:'POST',
+			data: $(this).serialize()
+		});
+		return false;
+	}
 
    ");
 ?>

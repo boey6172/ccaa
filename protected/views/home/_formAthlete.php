@@ -87,6 +87,7 @@ $form = $this->beginWidget(
 	            if(json.retVal == '{$success}')
 	            {
 								alert('success');
+								reloadGrid();
 	            }
 	            else if(json.retVal == '{$error}')
 	            {
@@ -100,6 +101,15 @@ $form = $this->beginWidget(
 	$( '.save_department_btn' ).click(function() {
 		saveExpenses();
 	});
+
+	function reloadGrid()
+	{
+		$('#seasons-athlete-grid').yiiGridView('update', {
+			type:'POST',
+			data: $(this).serialize()
+		});
+		return false;
+	}
 
 
 

@@ -78,7 +78,8 @@ print_r($model)
 		),
 		
 		array(
-			'class'=>'CButtonColumn',
-		),
+			'template' => '{view}{update}',
+			'class' => 'CButtonColumn',
+	),
 	),
 )); ?>

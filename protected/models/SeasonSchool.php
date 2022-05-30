@@ -42,6 +42,7 @@ class SeasonSchool extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'School'=>array(self::HAS_ONE, 'School', array( 'id' => 'school' )),
 		);
 	}
 

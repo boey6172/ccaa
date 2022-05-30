@@ -16,12 +16,12 @@ $this->menu=array(
 );
 ?>
 
-<h1>View User #<?php echo $model->user_id; ?></h1>
+<h1>View User #<?php echo $model->username; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'user_id',
+		// 'user_id',
 		'username',
 		// 'password',
 		'email',

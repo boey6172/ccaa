@@ -44,7 +44,8 @@ $('.search-form form').submit(function(){
 		'id',
 		'name',
 		array(
-			'class'=>'CButtonColumn',
-		),
+			'template' => '{view}{update}',
+			'class' => 'CButtonColumn',
+	),
 	),
 )); ?>

@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128,'disabled'=>true)); ?>
+		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
@@ -72,6 +72,26 @@
 		<?php echo $form->textField($model,'is_activated'); ?>
 		<?php echo $form->error($model,'is_activated'); ?>
 	</div> -->
+	<div class="col-sm-1">
+		Role
+	</div>
+	<div class="col-sm-5">
+ <?php
+ $this->widget(
+	'booster.widgets.TbSelect2',
+	array(
+			'asDropDownList' => true,
+			'name' => 'role',
+			'options' => array(
+					'tags' => array('rxAdmin', 'Co-Admin', 'school-co'),
+					'placeholder' => 'Roles',
+					'width' => '40%',
+					'tokenSeparators' => array(',', ' ')
+			)
+	)
+);
+ ?>
+        </div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

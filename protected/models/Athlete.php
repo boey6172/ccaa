@@ -42,14 +42,13 @@ class Athlete extends CActiveRecord
 		return array(
 			array('fname, mname, lname, birthday, email, street, barangay, city_municipality, province, school, event_id, cat_id, season_id, gender, cnum', 'required'),
 			array('fname,lname,mname', 'match', 'pattern'=>"/^([ a-zA-Z0-9_-]*)$/", 'message'=>'only letters, number, "-" and "_"'),
-			
-			array('fname, mname, lname, email, street, barangay, city_municipality, province, psa, coe, waiver, cog, medical', 'length', 'max'=>255),
+			array('fname, mname, lname, email, street, barangay, city_municipality, province, psa, coe, waiver, cog, medical,type', 'length', 'max'=>255),
 			array('suffix, event_id, cat_id,', 'length', 'max'=>45),
-			array('gender', 'length', 'max'=>12),
+			array('gender,type', 'length', 'max'=>12),
 			
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fname, mname, lname, suffix, birthday, email, street, barangay, city_municipality, province, gender,school, season_id, cnum', 'safe', 'on'=>'search'),
+			array('id, fname, mname, lname, suffix, birthday, email, street, barangay, city_municipality, province, gender,school, season_id, type, cnum', 'safe', 'on'=>'search'),
 			
 		);
 
@@ -102,6 +101,8 @@ class Athlete extends CActiveRecord
 			'cnum' => 'Contact No.',
 			'cat_id' => 'Category',
 			'event_id' => 'Event',
+			'type' => 'Type',
+
 
 			
 		);

@@ -1,21 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "season_athlete".
+ * This is the model class for table "file_types".
  *
- * The followings are the available columns in table 'season_athlete':
+ * The followings are the available columns in table 'file_types':
  * @property integer $id
- * @property integer $season
- * @property integer $athlete
+ * @property string $name
  */
-class SeasonAthlete extends CActiveRecord
+class FileType extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'season_athlete';
+		return 'file_types';
 	}
 
 	/**
@@ -26,11 +25,11 @@ class SeasonAthlete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('season, athlete', 'required'),
-			array('season, athlete', 'numerical', 'integerOnly'=>true),
+			array('name', 'required'),
+			array('name', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, season, athlete', 'safe', 'on'=>'search'),
+			array('id, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -42,8 +41,6 @@ class SeasonAthlete extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'Athlete'=>array(self::HAS_ONE, 'Athlete', array( 'id' => 'athlete' )),
-
 		);
 	}
 
@@ -54,8 +51,7 @@ class SeasonAthlete extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'season' => 'Season',
-			'athlete' => 'Athlete',
+			'name' => 'Name',
 		);
 	}
 
@@ -78,8 +74,7 @@ class SeasonAthlete extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('season',$this->season);
-		$criteria->compare('athlete',$this->athlete);
+		$criteria->compare('name',$this->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -90,7 +85,7 @@ class SeasonAthlete extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return SeasonAthlete the static model class
+	 * @return FileType the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -46,7 +46,8 @@ $('.search-form form').submit(function(){
 		'number',
 		'theme',
 		array(
-			'class'=>'CButtonColumn',
-		),
+			'template' => '{view}{update}',
+			'class' => 'CButtonColumn',
+	),
 	),
 )); ?>

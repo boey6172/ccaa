@@ -27,18 +27,30 @@ class AthleteController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
+			// array('allow',  // allow all users to perform 'index' and 'view' actions
+			// 	'actions'=>array('index','view','upload'),
+			// 	'users'=>array('*'),
+			// ),
+			// array('allow', // allow authenticated user to perform 'create' and 'update' actions
+			// 	'actions'=>array('create','update'),
+			// 	'users'=>array('@'),
+			// ),
+			// array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			// 	'actions'=>array('admin','delete'),
+			// 	'users'=>array('admin'),
+			// ),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','index','view','upload','admin','delete'),
+				'roles'=>array('Co-Admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'actions'=>array('create','update','index','view','upload','admin','delete'),
+				'roles'=>array('rxAdmin'),
 			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			'actions'=>array('update','index','view','upload','admin','delete'),
+			'roles'=>array('school-co'),
+		),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -55,6 +67,105 @@ class AthleteController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+
+	public function actionUpload()
+	{
+		$alert = (object) array();
+		$alert->context = 'danger';
+		$alert->messages = '';
+
+		$retVal = 'error';
+		$retMessage = 'error';
+
+		// CHECKING POST DATA
+		if(isset($_POST['Athlete']))
+		{
+				$temp = new Athlete('search');
+				$temp->attributes = $_POST['Athlete'];
+
+				$model=Athlete::model()->findByPk($temp->id);
+
+				$athlete_file = CUploadedFile::getInstance($temp,'psa');
+
+				if($athlete_file != "")
+				{
+
+
+						// CHEKING FILE EXTENSION
+
+								$temp_path = "uploads/";
+								$file_name = date('YmdHis') . $athlete_file->name;
+								$model->type = $temp->type;
+
+								// SAVING FILE TEMP FOLDER
+								if($athlete_file->saveAs($temp_path . $file_name))
+								{
+									if($model->type == 1){
+										$model->psa = $file_name;
+										if($model->save())
+										{
+											$retMessage = 'done';
+											$retVal = 'success';
+										}	
+									}
+									elseif($model->type == 2){
+										$model->coe = $file_name;
+										if($model->save())
+										{
+											$retMessage = 'done';
+											$retVal = 'success';
+										}	
+									}
+									elseif($model->type == 3){
+										$model->waiver = $file_name;
+										if($model->save())
+										{
+											$retMessage = 'done';
+											$retVal = 'success';
+										}	
+									}
+									elseif($model->type == 4){
+										$model->cog = $file_name;
+										if($model->save())
+										{
+											$retMessage = 'done';
+											$retVal = 'success';
+										}	
+									}
+									elseif($model->type == 5){
+										$model->medical = $file_name;
+										if($model->save())
+										{
+											$retMessage = 'done';
+											$retVal = 'success';
+										}	
+									}else{
+										$retMessage = 'error1';
+										$retVal = 'error1';
+									}
+							
+
+								}
+								else
+								{
+										$alert->messages = 'Ooops, error in uploading';
+								}
+
+				}
+				else
+				{
+						$alert->messages = "Woops, Did you forget the file.";
+				}
+		}
+
+
+		$this->renderPartial('/json/json_ret', array(
+				'retVal' => $retVal,
+				'retMessage' => $retMessage,
+		));
+	}
+
+
 
 	/**
 	 * Creates a new model.
@@ -146,9 +257,23 @@ class AthleteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Athlete');
+		// $dataProvider=new CActiveDataProvider('Athlete');
+		// $this->render('index',array(
+		// 	'dataProvider'=>$dataProvider,
+		// ));
+
+		$model=new Athlete('search');
+
+
+		// $model->unsetAttributes();  // clear any default values
+		// // if(isset($_GET['Athlete']))
+		$checkSchool= User::model()->findByAttributes(array('user_id'=>Yii::app()->user->Id)) ;
+
+		// 	// $model->attributes=$_GET['Athlete'];
+			if ($checkSchool->school != '')
+					$model = 	Athlete::model()->findByAttributes(array('school'=>$checkSchool->school));
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'model'=>$model,
 		));
 	}
 
@@ -158,9 +283,15 @@ class AthleteController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Athlete('search');
+
+
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Athlete']))
 			$model->attributes=$_GET['Athlete'];
+	
+			$checkSchool= User::model()->findByAttributes(array('user_id'=>Yii::app()->user->Id)) ;
+			if ($checkSchool->school != '')
+				$model = 	Athlete::model()->findByAttributes(array('school'=>$checkSchool->school));
 
 		$this->render('admin',array(
 			'model'=>$model,

@@ -50,7 +50,8 @@ $('.search-form form').submit(function(){
 		),
 		'action',
 		array(
-			'class'=>'CButtonColumn',
-		),
+			'template' => '{view}{update}',
+			'class' => 'CButtonColumn',
+	),
 	),
 )); ?>

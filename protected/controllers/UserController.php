@@ -27,18 +27,26 @@ class UserController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
+			// array('allow',  // allow all users to perform 'index' and 'view' actions
+			// 	'actions'=>array('index','view'),
+			// 	'users'=>array('*'),
+			// ),
+			// array('allow', // allow authenticated user to perform 'create' and 'update' actions
+			// 	'actions'=>array('create','update'),
+			// 	'users'=>array('@'),
+			// ),
+			// array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			// 	'actions'=>array('admin','delete'),
+			// 	'users'=>array('admin'),
+			// ),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
+			'actions'=>array('admin','delete','create','update','index','view'),
+			'roles'=>array('rxAdmin'),
+		),
+		array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			'actions'=>array('admin','delete','create','update','index','view'),
+			'roles'=>array('Co-Admin'),
+		),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -67,17 +75,25 @@ class UserController extends Controller
 	public function actionCreate()
 	{
 		$model=new User;
+		$auth=new Authassignment;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['User']))
 		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->user_id));
+			if(isset($_POST['role']))
+			{
+				$model->attributes=$_POST['User'];
+				$model->is_activated = 1;
+				if($model->save())
+				{	$auth->itemname=$_POST['role'];
+					$auth->userid=$model->user_id;
+					if($auth->save())
+						$this->redirect(array('view','id'=>$model->user_id));
+				}
+			}
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -91,7 +107,6 @@ class UserController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
 		
 		unset($model->password);
 
@@ -100,12 +115,22 @@ class UserController extends Controller
 
 		if(isset($_POST['User']))
 		{
-			$model->attributes=$_POST['User'];
-			if(!$model->password)
-			unset($model->password);
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->user_id));
-		}
+				if(isset($_POST['role']))
+				{
+					$model->attributes=$_POST['User'];
+					$model->is_activated = 1;
+					if(!$model->password)
+					unset($model->password);
+					if($model->save())
+					{
+						$auth= Authassignment::model()->findByAttributes(array('userid'=>$model->user_id));
+						$auth->itemname=$_POST['role'];
+						$auth->userid=$model->user_id;
+						if($auth->save())
+							$this->redirect(array('view','id'=>$model->user_id));
+					}
+				}
+			}
 
 		$this->render('update',array(
 			'model'=>$model,

@@ -139,16 +139,23 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
+              <?php $role = Authassignment::model()->findByAttributes(array('userid'=>Yii::app()->user->Id)); ?>
 
-              <li class=" ">
-                <a href="<?php echo Yii::app()->createUrl('home/index'); ?>">
+              <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
+                <a href="<?php echo Yii::app()->createUrl('home/index'); ?>" >
                     <i class="fa fa-dashboard fa-fw"></i> <span>Dashboard</span>
 
                 </a>
               </li>  
 
 
-              <li class=" ">
+            <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('seasons/index'); ?>">
                     <i class="fa fa-sun-o fa-fw"></i> <span>Season</span>
                     
@@ -165,7 +172,10 @@
              </li>
 
 
-            <li class=" ">
+             <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('school/index'); ?>">
                     <i class="fa fa-home fa-fw"></i> <span>School</span>
                     
@@ -173,7 +183,10 @@
                 </a>
               </li>  
               
-            <li class=" ">
+              <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('event/index'); ?>">
                     <i class="fa fa-bicycle fa-fw"></i> <span>Event</span>
                     
@@ -182,7 +195,10 @@
             
               </li>
 
-            <li class=" ">
+              <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('category/index'); ?>">
                     <i class="fa fa-bars fa-fw"></i> <span>Category</span>
                     
@@ -193,7 +209,10 @@
 
             
 
-            <li class=" ">
+              <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('schedule/index'); ?>">
                     <i class="fa fa-calendar-o fa-fw"></i> <span>Schedule</span>
                     
@@ -201,7 +220,10 @@
                 </a>            
             </li>
 
-            <li class=" ">
+            <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('achievement/index'); ?>">
                     <i class="fa fa-trophy fa-fw"></i> <span>Achievement</span>
                     
@@ -209,7 +231,10 @@
                 </a>            
             </li>
 
-            <li class=" ">
+            <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('announcement/index'); ?>">
                     <i class="fa fa-bullhorn fa-fw"></i> <span>Announcement</span>
                     
@@ -217,7 +242,10 @@
                 </a>            
             </li>
 
-            <li class=" ">
+            <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('logs/index'); ?>">
                     <i class="fa fa-list-alt fa-fw"></i> <span>Logs</span>
                     
@@ -225,7 +253,10 @@
                 </a>            
             </li>
 
-            <li class=" ">
+            <li class=" " style =  
+              <?php echo ($role->itemname == 'school-co')?
+                 "display:none": "" 
+              ?>>
                 <a href="<?php echo Yii::app()->createUrl('user/index'); ?>">
                     <i class="fa fa-user fa-fw"></i> <span>Users</span>
 

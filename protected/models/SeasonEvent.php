@@ -26,11 +26,11 @@ class SeasonEvent extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event, season', 'required'),
+			array('event, season,category', 'required'),
 			array('id, event, season', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, event, season', 'safe', 'on'=>'search'),
+			array('id, event, season, category', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -42,6 +42,11 @@ class SeasonEvent extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+				'Event'=>array(self::HAS_ONE, 'Event', array( 'id' => 'event' )),
+				'Season'=>array(self::HAS_ONE, 'Seasons', array( 'id' => 'season' )),
+				'Category'=>array(self::HAS_ONE, 'Category', array( 'id' => 'category' )),
+
+
 		);
 	}
 

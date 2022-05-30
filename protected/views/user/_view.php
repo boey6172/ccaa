@@ -5,12 +5,13 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
+	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->user_id), array('view', 'id'=>$data->user_id)); ?>
-	<br />
+	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
-	<?php echo CHtml::encode($data->username); ?>
+	<?php echo CHtml::link(CHtml::encode($data->username), array('view', 'id'=>$data->user_id)); ?>
+	<!-- <?php echo CHtml::encode($data->username); ?> -->
 	<br />
 
 	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>

@@ -36,9 +36,13 @@ class HomeController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','AddEvent'),
-				'users'=>array('admin'),
+				'actions'=>array('admin','delete','AddEvent','create','update','index','view','SeasonSave','addEvent','EventSave','AddSchool','SchoolSave','AddAthlete','AthleteSave'),
+				'roles'=>array('Co-Admin'),
 			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			'actions'=>array('admin','delete','AddEvent','create','update','index','view','SeasonSave','addEvent','EventSave','AddSchool','SchoolSave','AddAthlete','AthleteSave'),
+			'roles'=>array('rxAdmin'),
+		),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),

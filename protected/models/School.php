@@ -35,7 +35,7 @@ class School extends CActiveRecord
 			//array('crt_date', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, acr, logo, address, crt_date', 'safe', 'on'=>'search'),
+			array('id, name, acr, logo, address, crt_date, file ', 'safe', 'on'=>'search'),
 		);
 	}
 

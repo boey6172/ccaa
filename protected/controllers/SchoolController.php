@@ -27,18 +27,26 @@ class SchoolController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
+			// array('allow',  // allow all users to perform 'index' and 'view' actions
+			// 	'actions'=>array('index','view'),
+			// 	'users'=>array('*'),
+			// ),
+			// array('allow', // allow authenticated user to perform 'create' and 'update' actions
+			// 	'actions'=>array('create','update'),
+			// 	'users'=>array('@'),
+			// ),
+			// array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			// 	'actions'=>array('admin','delete'),
+			// 	'users'=>array('admin'),
+			// ),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
+			'actions'=>array('admin','delete','create','update','index','view','upload'),
+			'roles'=>array('rxAdmin'),
+		),
+		array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			'actions'=>array('admin','delete','create','update','index','view','upload'),
+			'roles'=>array('Co-Admin'),
+		),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -54,6 +62,65 @@ class SchoolController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+	}
+	public function actionUpload()
+	{
+		$alert = (object) array();
+		$alert->context = 'danger';
+		$alert->messages = '';
+
+		$retVal = 'error';
+		$retMessage = 'error';
+
+		// CHECKING POST DATA
+		if(isset($_POST['School']))
+		{
+				$temp = new School('search');
+				$temp->attributes = $_POST['School'];
+
+				$model=School::model()->findByPk($temp->id);
+
+				$athlete_file = CUploadedFile::getInstance($temp,'logo');
+
+				if($athlete_file != "")
+				{
+
+						// CHEKING FILE EXTENSION
+
+								$temp_path = "uploads/";
+								$file_name = date('YmdHis') . $athlete_file->name;
+
+								// SAVING FILE TEMP FOLDER
+								if($athlete_file->saveAs($temp_path . $file_name))
+								{
+								
+										$model->logo = $file_name;
+										if($model->save())
+										{
+											$retMessage = 'done';
+											$retVal = 'success';
+										}	
+									
+			
+									$retMessage = 'error';
+									$retVal = 'error';
+
+								}
+								else
+								{
+										$alert->messages = 'Ooops, error in uploading';
+								}
+
+				}
+				else
+				{
+						$alert->messages = "Woops, Did you forget the file.";
+				}
+		}
+		$this->renderPartial('/json/json_ret', array(
+			'retVal' => $retVal,
+			'retMessage' => $retMessage,
+	));
 	}
 
 	/**

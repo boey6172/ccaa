@@ -13,7 +13,6 @@ class WebUser extends CWebUser {
   function getFirst_Name(){
     $user = $this->loadUser(Yii::app()->user->id);
     // $current_user=User::model()->findByPk($user->user_id);
-
     return ucfirst (  $user->first_name ) . ' ' .ucfirst (  $user->surname ) ;
   }
 
