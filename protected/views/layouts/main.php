@@ -139,10 +139,15 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
+              <?php $ret = false; ?>
               <?php $role = Authassignment::model()->findByAttributes(array('userid'=>Yii::app()->user->Id)); ?>
+              <?php
+               if ($role !== null) 
+                $ret = $role->itemname  ;
+               ?>
 
               <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+              <?php echo ($ret == 'school-co')?
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('home/index'); ?>" >
@@ -153,7 +158,8 @@
 
 
             <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+            <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('seasons/index'); ?>">
@@ -173,7 +179,8 @@
 
 
              <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+             <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('school/index'); ?>">
@@ -184,7 +191,8 @@
               </li>  
               
               <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+              <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('event/index'); ?>">
@@ -196,7 +204,8 @@
               </li>
 
               <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+              <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('category/index'); ?>">
@@ -210,7 +219,8 @@
             
 
               <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+              <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('schedule/index'); ?>">
@@ -221,7 +231,8 @@
             </li>
 
             <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+            <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('achievement/index'); ?>">
@@ -232,7 +243,8 @@
             </li>
 
             <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+            <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('announcement/index'); ?>">
@@ -243,7 +255,8 @@
             </li>
 
             <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+            <?php echo ($ret == 'school-co')?
+
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('logs/index'); ?>">
@@ -254,7 +267,7 @@
             </li>
 
             <li class=" " style =  
-              <?php echo ($role->itemname == 'school-co')?
+            <?php echo ($ret == 'school-co')?
                  "display:none": "" 
               ?>>
                 <a href="<?php echo Yii::app()->createUrl('user/index'); ?>">

@@ -46,17 +46,24 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		// 'id',
-		'fname',
-		'mname',
-		'lname',
+		array(
+			// 'name'=>'Name',
+			'value'=>'$data->getFullName()',
+		),
 		'suffix',
 		array(
 			'name'=>'school',
 			'value'=>'$data->School->name',
 		),
-		'birthday',
-		'email',
-		'cnum',
+		array(
+			'name'=>'Event',
+			'value'=>'$data->Event->name',
+		),
+		array(
+			'name'=>'Category',
+			'value'=>'$data->Category->name',
+		),
+
 		array(
 			'name'=>'gender',
 			'value'=>'$data->Gender->name',

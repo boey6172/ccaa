@@ -24,21 +24,23 @@ $this->menu=array(
 	// 'filter'=>$model,
 	'columns'=>array(
 		// 'id',
-		'fname',
-		'mname',
-		'lname',
+		array(
+			// 'name'=>'school',
+			'value'=>'$data->getFullName()',
+		),
 		'suffix',
 		array(
 			'name'=>'school',
 			'value'=>'$data->School->name',
 		),
-		'birthday',
-		'email',
-		'cnum',
 		array(
-			'name'=>'gender',
-			'value'=>'$data->Gender->name',
-		 ),
+			'name'=>'Event',
+			'value'=>'$data->Event->name',
+		),
+		array(
+			'name'=>'Category',
+			'value'=>'$data->Category->name',
+		),
 		 
 		 
 		 array(
